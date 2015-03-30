@@ -384,18 +384,15 @@ $(document).ready(function() {
 		"31"
 	];
 
-	$('.getInput').keyup(function() {
+	//function returnSubtotalPrice (cost, day, i) {
+
+		//$($('.totalCost')[i]).text("$" + (Number($(day).val()) * Number($(cost).text().replace('$', '').replace('\/day', ''))));
+	
+	//}
+
+	$(document).on("keyup", '.getInput', function() {
 		total();
 	});
-
-	//$('#activities').keyup(function() {
-    	//var activities = $('#activities');
-    	//total();
-  //});
-  //$('#flights').keyup(function() {
-  	//var flights = $('#flights');
-  	//total();
-  //});
 
 	function total() {
 
@@ -408,7 +405,13 @@ $(document).ready(function() {
     for (var i = 0; i < dailyCost.length; i++) {
 		  var cost = dailyCost[i];
 		  var day = days[i];
+		  
+		  $($('.totalCost')[i]).text("$" + (Number($(day).val()) * Number($(cost).text().replace('$', '').replace('\/day', ''))));
+		  
 		  sum += (Number($(day).val()) * Number($(cost).text().replace('$', '').replace('\/day', '')));
+    	
+    	//returnSubTotalPrice(cost, day, i);
+
     }
 
     sum = sum + Number($(activities).val()) + (Number($(flights).val().replace('$', '')) * 0.12);
@@ -422,7 +425,7 @@ $(document).ready(function() {
     });
 
 	$('.glyphicon-remove').on("click", function() {
-		$(this).parent().parent().fadeOut(300).remove();
+		$(this).parent().parent().fadeOut(600,function() { $(this).remove() });
 		total();
 	});
 
@@ -446,11 +449,11 @@ $(document).ready(function() {
 		$('.dailyCost:first').text("$" + dailyCost + "/day");
 
 		$('.glyphicon-remove').on("click", function() {
-			$(this).parent().parent().fadeOut(300).remove();
+			$(this).parent().parent().fadeOut(600,function() { $(this).remove() });
 			total();
 		});
 
-		$('.days').keyup(function() {
+		$(document).on("keyup", '.getInput', function() {
 			total();
 		});
 
@@ -462,9 +465,9 @@ $(document).ready(function() {
 
 	$(".btn-group > .btn").click(function(){
     $(this).addClass("active").siblings().removeClass("active");
+  });
 });
 
-});
 
 		//var totalCost = Number(dailyCost) * days;
 		//$('.totalCost:last').text("$" + totalCost);

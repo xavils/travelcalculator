@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>How much to travel the world?</title>
+    <title>How much to travel the world</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,77 +10,191 @@
     <meta name="author" content="xavils">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   </head>
   <body>
-    <section id="items-list" class="container">
-      <div class="row">
-        <div class="col-lg-6" id="addBelow">
-          <div class="input-group">
-            <span class="input-group-addon" id="sizing-addon1">Country</span>
-            <div class="ui-widget">
-              <input type="text" class="form-control getInput" id="country" placeholder="Ex: Hong Kong...">
+    <section id="head" class="container col-xs-12">
+      <div class="image">
+        <img src="world.png" height="250px" width="250px" align="middle">
+      </div>
+      <h1>HOW MUCH TO TRAVEL THE WORLD</h1>
+      <p>Easily calculate the cost of a multi-country trip using this handy tool</p>
+      <a id="insideLetsGo" class="btn btn-default center-block"  href="#calculator" role="button">LET'S GO!</a>
+    </section>
+    <section id="calculator" class="container col-xs-12 hidden">
+      <div>
+        <a id="toHome" class="btn btn-default" href="#" role="button">Go back</a>        
+        <a id="getTotal" class="btn btn-default" href="#results" role="button">Get total</a>
+      </div>
+      <div class="row col-xs-12">
+        <h2>WHERE DO YOU WANT TO GO?</h2>
+      </div>
+      <div class="row col-xs-12">
+        <div class="col-xs-12 col-md-5">
+          <div class="col-xs-12">
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon1">Country</span>
+              <div class="ui-widget">
+                <input type="text" class="form-control getInput" id="country" placeholder="Ex: Hong Kong...">
+              </div>
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button" id="add">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>
+              </span>
             </div>
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button" id="add">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-              </button>
-            </span>
           </div>
+          <div class="col-xs-12">
+            <div class="btn-group btn-group-justified" role="group" aria-label="...">
+              <!--<button type="button" class="btn btn-disabled a">Sleep</button>-->
+              <a type="button" class="btn btn-default activate" id="hostel">Hostel</a>
+              <a type="button" class="btn btn-default activate" id="cheapHotel">Cheap Hotel</a>
+              <a type="button" class="btn btn-default activate" id="starHotel">*** Hotel</a>
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <div class="btn-group btn-group-justified" role="group" aria-label="...">
+              <!--<button type="button" class="btn btn-disabled">Eat</button>-->
+              <a type="button" class="btn btn-default activate" id="streetFood">Street Food</a>
+              <a type="button" class="btn btn-default activate" id="eatOut">Eat Out Often</a>
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <div class="btn-group btn-group-justified " role="group" aria-label="...">
+              <!--<button type="button" class="btn btn-disabled">Party</button>-->
+              <a type="button" class="btn btn-default activate" id="noParty">No party</a>
+              <a type="button" class="btn btn-default activate" id="moderate">Moderate</a>
+              <a type="button" class="btn btn-default activate" id="hellYes">Hell Yes!</a>
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <div class="input-group">
+              <span class="input-group-addon">Activities</span>
+              <input type="text" id="activities" class="form-control getInput" placeholder="Those extra activities...">
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <div class="input-group">
+              <span class="input-group-addon">Flights</span>
+              <input type="text" id="flights" class="form-control getInput" placeholder="Total miles travelled">
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <div class="btn-group btn-group-justified" role="group" aria-label="...">
+              <a id="getTotal" class="btn btn-default btn-justified" href="#totalPrice" role="button">Get total</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-7" id="addBelow">
         </div>
       </div>
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="btn-group" role="group" aria-label="...">
-            <button type="button" class="btn btn-disabled">Sleep</button>
-            <button type="button" class="btn btn-default" id="hostel">Hostel</button>
-            <button type="button" class="btn btn-default" id="cheapHotel">Cheap Hotel</button>
-            <button type="button" class="btn btn-default" id="starHotel">*** Hotel</button>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="input-group">
-            <span class="input-group-addon">Activities</span>
-            <input type="text" id="activities" class="form-control getInput" placeholder="Those extra activities...">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="btn-group" role="group" aria-label="...">
-            <button type="button" class="btn btn-disabled">Eat</button>
-            <button type="button" class="btn btn-default" id="streetFood">Street Food</button>
-            <button type="button" class="btn btn-default" id="eatOut">Eat Out Often</button>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="input-group">
-            <span class="input-group-addon">Flights</span>
-            <input type="text" id="flights" class="form-control getInput" placeholder="Total miles travelled">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="btn-group" role="group" aria-label="...">
-            <button type="button" class="btn btn-disabled">Party</button>
-            <button type="button" class="btn btn-default" id="noParty">No</button>
-            <button type="button" class="btn btn-default" id="moderate">Moderate</button>
-            <button type="button" class="btn btn-default" id="hellYes">Hell Yes!</button>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <a class="btn btn-default" href="#" role="button">Get total</a>
-        </div>
-      </div>
+    </section>
+    <section id="results" class="hidden">
       <div class="row">
         <div class="col-xs-12">
           <h1 id="totalPrice">$0</h1>
         </div>
       </div>
+      <div class="row">
+        <div id="summary" class="col-xs-12">
+          <p id="sumCaption">You will visit X countries for Y days and spend an average of $XX daily.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div id="list" class="col-xs-12 col-lg-8 col-lg-offset-2 table-responsive">
+          <table class="table">
+            <tr class="col-lg-6">
+              <td><i class="fa fa-plane"></i></td>
+              <td>Flights</td> 
+              <td id="totalFlights">$0</td>
+            </tr>
+            <tr class="col-lg-6">
+              <td><i class="fa fa-train"></td>
+              <td>Other transport</td> 
+              <td id="totalTransport">$0</td>
+            </tr>
+            <tr class="col-lg-6">
+              <td><i class="fa fa-hotel"></td>
+              <td>Accomodation</td> 
+              <td id="totalSleep">$0</td>
+            </tr>
+            <tr class="col-lg-6">
+              <td><i class="fa fa-spoon"></td>
+              <td>Food</td> 
+              <td id="totalFood">$0</td>
+            </tr>
+            <tr class="col-lg-6">
+              <td><i class="fa fa-soccer-ball-o"></td>
+              <td>Activities</td> 
+              <td id="totalActivities">$0</td>
+            </tr>
+            <tr class="col-lg-6">
+              <td><i class="fa fa-dollar"></td>
+              <td>Travel expenses</td> 
+              <td id="totalTravel">$0</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div>
+        <a id="toCalculator" class="btn btn-default" href="#travelTips" role="button">Go back</a>        
+        <a id="toTravelTips" class="btn btn-default" href="#travelTips" role="button">Travel tips</a>
+      </div>
+    </section>
+    <section id="travelTips" class="hidden">
+      <h2>Travel tips</h2>
+      <ul class="nav nav-pills">
+        <li class="active"><a href="#money" data-toggle="tab">Money</a></li>
+        <li><a href="#visas" data-toggle="tab">Visas</a></li>
+        <li><a href="#baggage" data-toggle="tab">Baggage</a></li>
+        <li><a href="#insurance" data-toggle="tab">Insurance</a></li>
+        <li><a href="#travelGuides" data-toggle="tab">Travel Guides</a></li>
+        <li><a href="#vaccines" data-toggle="tab">Vaccines</a></li>
+      </ul>
+
+      <div id='content' class="tab-content">
+        <div class="tab-pane active" id="money">
+          <ul>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </ul>
+        </div>
+        <div class="tab-pane" id="visas">
+          <ul>
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+          </ul>
+        </div>
+        <div class="tab-pane" id="baggage">
+          <ul>
+            But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
+            But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
+          </ul>
+        </div>
+        <div class="tab-pane" id="insurance">
+          <ul>
+            But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
+          </ul>
+        </div>
+        <div class="tab-pane" id="travel guides">
+          <ul>
+            But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
+          </ul>
+        </div>
+        <div class="tab-pane" id="vaccines">
+          <ul>
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+          </ul>
+        </div>
+      </div>
+      <a id="backToTop" class="btn btn-default" href="#" role="button">Back to top</a>
     </section>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="jquery.autocomplete.js"></script>
     <script src="application.js"></script>
 

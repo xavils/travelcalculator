@@ -144,7 +144,7 @@ $(document).ready(function() {
 		"Rwanda",
 		"Saint Kitts and Nevis",
 		"Saint Lucia",
-		"St. Vincent and Grenadines",
+		"Saint Vincent and Grenadines",
 		"Samoa",
 		"Saudi Arabia",
 		"Senegal",
@@ -403,10 +403,6 @@ $(document).ready(function() {
     $('#head').removeClass("hidden").siblings().addClass("hidden");
 		total();
 	});
-	$("#toCalculator").click(function(){
-    $('#calculator').removeClass("hidden").siblings().addClass("hidden");
-		total();
-	});
 
 	$(document).on("keyup", '.getInput', function() {
 		total();
@@ -419,54 +415,84 @@ $(document).ready(function() {
 		var activities = $('#activities');
 		var flights = $('#flights');
     var sum = 0;
-    var dayT = 0;
-    var sumLess = 0;
-    var average = 0;
-    var totalFlights = 0;
-    var totalTransport = 0;
-    var totalSleep = 0;
-    var totalFood = 0;
-    var totalActivities = 0;
-    var totalTravel = 0;
 
     for (var i = 0; i < dailyCost.length; i++) {
 		  var cost = dailyCost[i];
 		  var day = days[i];
-		  
-		  $($('.totalCost')[i]).text("$" + (Number($(day).val()) * Number($(cost).text().replace('$', '').replace('\/day', ''))));
-		  
-		  sum += (Number($(day).val()) * Number($(cost).text().replace('$', '').replace('\/day', '')));
-    	dayT += Number($(day).val());
 
+		  if ($('.activate').hasClass('active')) {
+	  	  var dailyCostFinal = Number($(cost).text().replace('$', '').replace('\/day', ''));
+				console.log(dailyCostFinal);	
+				var hostel;
+				var cheapHotel;
+				var starHotel;
+				var streetFood;
+				var eatOut;
+				var noParty;
+				var moderate;
+				var hellYes;
+
+	      if ($('#hostel').hasClass('active')) {
+					hostel = 0;
+				} else {
+					hostel = 0;
+				}
+				if ($('#cheapHotel').hasClass('active')) {
+					console.log(dailyCostFinal);
+					cheapHotel = dailyCostFinal * 0.75;
+				} else {
+					console.log(dailyCostFinal);
+					cheapHotel = 0;
+				}
+				if ($('#starHotel').hasClass('active')) {
+					starHotel = (dailyCostFinal * 1.5);
+				} else {
+					starHotel = 0;
+				}
+				if ($('#streetFood').hasClass('active')) {
+					streetFood = (dailyCostFinal * 0);
+				} else {
+					streetFood = 0;
+				}
+				if ($('#eatOut').hasClass('active')) {
+					eatOut = (dailyCostFinal * 0.63);
+				} else {
+					eatOut = 0;
+				}
+				if ($('#noParty').hasClass('active')) {
+					noParty = (dailyCostFinal * 0);
+				} else {
+					noParty = 0;
+				}
+				if ($('#moderate').hasClass('active')) {
+					moderate = (dailyCostFinal * 0.15);
+				} else {
+					moderate = 0;
+				}
+				if ($('#hellYes').hasClass('active')) {
+					hellYes = (dailyCostFinal * 0.4);
+				} else {
+					hellyes = 0;
+				}
+				
+				var addToSum = hostel + cheapHotel + starHotel + streetFood + eatOut + noParty + moderate + hellYes;
+				var newDaily = dailyCostFinal + addToSum;
+				$('.dailyCost').text("$" + newDaily);
+			}
+
+		  $($('.totalCost')[i]).text("$" + (Number($(day).val()) * Number($(cost).text().replace('$', '').replace('\/day', ''))));
+
+		  sum += (Number($(day).val()) * Number($(cost).text().replace('$', '').replace('\/day', '')));
     }
-    sumLess = sum;
-    average = Math.round(sumLess/dayT);
+
     sum = sum + Number($(activities).val()) + (Number($(flights).val().replace('$', '')) * 0.12);
 
-    totalFlights = Math.round(Number($(flights).val().replace('$', '')) * 0.12);
-    totalTransport = Math.round(sumLess * 0.25);
-    totalSleep = Math.round(sumLess * 0.3);
-    totalFood = Math.round(sumLess * 0.25);
-    totalActivities = Math.round((sumLess * 0.15) + Number($(activities).val()));
-    totalTravel = Math.round(sumLess * 0.05);
-
-    $('#totalFlights').text("$" + totalFlights);
-    $('#totalTransport').text("$" + totalTransport);
-    $('#totalSleep').text("$" + totalSleep);
-    $('#totalFood').text("$" + totalFood);
-    $('#totalActivities').text("$" + totalActivities);
-    $('#totalTravel').text("$" + totalTravel);
     $('#totalPrice').text("$" + sum);
-    $('#sumCaption').text("You will visit " + days.length + " countries for " + dayT + " days and spend an average of $" + average + " daily")
 
   }
 
-	$( "#country" ).autocomplete({
-      lookup: countries
-    });
-
 	$('.glyphicon-remove').on("click", function() {
-		$(this).parent().parent().fadeOut(600,function() { $(this).remove() });
+		$(this).parent().parent().remove();
 		total();
 	});
 
@@ -484,13 +510,13 @@ $(document).ready(function() {
 			</div></div>');
 
 		var countryName = $('#country').val();
-		$('.countryName:last').text(countryName);
+		$('.countryName:first').text(countryName);
 
 		var dailyCost = budget[$.inArray(countryName, countries)];
-		$('.dailyCost:last').text("$" + dailyCost + "/day");
+		$('.dailyCost:first').text("$" + dailyCost + "/day");
 
 		$('.glyphicon-remove').on("click", function() {
-			$(this).parent().parent().fadeOut(600,function() { $(this).remove() });
+			$(this).parent().parent().remove();
 			total();
 		});
 
@@ -506,5 +532,7 @@ $(document).ready(function() {
 
 	$(".btn-group > .btn").click(function(){
     $(this).addClass("active").siblings().removeClass("active");
-  });
+		total();
+	});
+
 });

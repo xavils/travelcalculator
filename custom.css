@@ -1,0 +1,99 @@
+h1 {
+	font-size: 50px;
+	text-align: center;
+	font-weight: bold;
+	position: relative;
+	padding-bottom:  5px;
+	color: #455;
+}
+p {
+	font-size: 25px;
+	text-align: center;
+	padding-bottom:10px;
+	color: #555;
+}
+body {
+	max-width: 85%;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: #CDD;
+    font-family: Helvetica,Arial,sans-serif;
+}
+h2 {
+	font-size: 40px;
+	text-align: center;
+	font-weight: bold;
+	position: relative;
+	padding-bottom:  20px;
+	color: #455;
+}
+#daysInput {
+	max-width: 45px;
+}
+#insideLetsGo, #backToTop, #toTravelTips, #toCalculator, #getTotal, #toHome  {
+	width: 200px;
+	border-radius: 15px;
+	font-size: 20px;
+	text-align: center;
+	font-weight: bold;
+	color: #FFF;
+	border-width: 0;
+	background-color: #00cc99;
+}
+#insideLetsGo:hover, #backToTop:hover, #toTravelTips:hover, #toCalculator:hover, #getTotal:hover, #toHome:hover  {
+	opacity: 0.7;
+}
+#head {
+	padding-top: 15%;
+}
+#summary, #list {
+	font-size: 25px;
+	text-align: center;
+	position: relative;
+	padding-bottom:  20px;
+	color: #455;
+}
+.hidden {
+	visibility: hidden;
+}
+@media(max-width:767px){
+	#totalPrice {
+		font-size: 125px;
+		padding-top: 90px;
+	}
+}
+@media(min-width:768px){
+	#totalPrice {
+		font-size: 200px;
+		padding-top: 90px;
+	}
+}
+.table {
+	text-align: left;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+	border-top: 0;
+}
+.table-responsive {
+	border: 0;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+.table>.col-lg-6 {
+	width: auto;
+}
+#toTravelTips, #getTotal {
+    position: fixed;
+    top: 50px;
+    right: 50px; 
+}
+#toCalculator, #toHome  {
+    position: fixed;
+    top: 50px;
+    left: 50px; 
+}
+.image {
+	text-align: center;
+}

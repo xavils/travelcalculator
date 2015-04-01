@@ -7,7 +7,7 @@ h1 {
 	color: #455;
 }
 p {
-	font-size: 25px;
+	font-size: 20px;
 	text-align: center;
 	padding-bottom:10px;
 	color: #555;
@@ -24,23 +24,14 @@ h2 {
 	text-align: center;
 	font-weight: bold;
 	position: relative;
-	padding-bottom:  20px;
+	padding-bottom:  10px;
 	color: #455;
+	padding-top: 20px;
 }
 #daysInput {
 	max-width: 45px;
 }
-#insideLetsGo, #backToTop, #toTravelTips, #toCalculator, #getTotal, #toHome  {
-	width: 200px;
-	border-radius: 15px;
-	font-size: 20px;
-	text-align: center;
-	font-weight: bold;
-	color: #FFF;
-	border-width: 0;
-	background-color: #00cc99;
-}
-#insideLetsGo:hover, #backToTop:hover, #toTravelTips:hover, #toCalculator:hover, #getTotal:hover, #toHome:hover  {
+#greenButton:hover {
 	opacity: 0.7;
 }
 #head {
@@ -50,7 +41,7 @@ h2 {
 	font-size: 25px;
 	text-align: center;
 	position: relative;
-	padding-bottom:  20px;
+	padding-bottom: 20px;
 	color: #455;
 }
 .hidden {
@@ -59,14 +50,34 @@ h2 {
 @media(max-width:767px){
 	#totalPrice {
 		font-size: 125px;
-		padding-top: 90px;
+		margin-top: 50px;
 	}
+	.greenButton  {
+	width: 160px;
+	border-radius: 15px;
+	font-size: 16px;
+	text-align: center;
+	font-weight: bold;
+	color: #FFF;
+	border-width: 0;
+	background-color: #00cc99;
 }
+}	
 @media(min-width:768px){
 	#totalPrice {
 		font-size: 200px;
-		padding-top: 90px;
+		margin-top: 50px;
 	}
+	.greenButton  {
+	width: 200px;
+	border-radius: 15px;
+	font-size: 20px;
+	text-align: center;
+	font-weight: bold;
+	color: #FFF;
+	border-width: 0;
+	background-color: #00cc99;
+}
 }
 .table {
 	text-align: left;
@@ -84,16 +95,47 @@ h2 {
 .table>.col-lg-6 {
 	width: auto;
 }
-#toTravelTips, #getTotal {
-    position: fixed;
-    top: 50px;
-    right: 50px; 
+#toEat, #toParty, #toActivity, #toFlights, #toCalculator, #getTotal, #backToTop {
+    margin-top: 25px;
+    margin-right: 50px;
+    float: right;
 }
-#toCalculator, #toHome  {
-    position: fixed;
-    top: 50px;
-    left: 50px; 
+#toHome, #toSleep, #toEat2, #toParty2, #toActivity2, #toFlights2, #toCalculator2 {
+    margin-top: 25px;
+    margin-left: 50px; 
+    float: left;
 }
 .image {
 	text-align: center;
+}
+h3 {
+	font-weighrt: bold;
+	margin-top: 20px;
+	text-align: center;
+}
+.dolar:hover {
+	transform: scale(1.35);
+}
+.bigButtons {
+	text-align: center;
+	padding: 20px 0;
+}
+.autoHeight {
+	margin-top: 10%;
+}
+#addBelow {
+	margin-top: 25px;
+}
+.glyphicon-remove {
+	cursor: pointer;
+}
+td, th {
+	text-align: center;
+	vertical-align: middle;
+	border-bottom: 1px dashed grey;
+	margin-bottom: 0px;
+}
+#daysInput {
+	background-color: transparent;
+	border-color: transparent;
 }

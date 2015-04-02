@@ -400,37 +400,106 @@ $(document).ready(function() {
     onlyShowCurrentSection(currentSectionNum);
 	});*/
 
+	var sleep = 0;
+	var eat = 0;
+	var party = 0;
+	var options = 1;
+
+	$('#hostel').click(function() {
+		sleep = 0;
+		options = options + sleep;
+		total();
+	});
+	$('#cheapHotel').click(function() {
+		sleep = 0.75;
+		options = options + sleep;
+		total();
+	});
+	$('#starHotel').click(function() {
+		sleep = 1.5;
+		options = options + sleep;
+		total();
+	});
+	$('#streetFood').click(function() {
+		eat = 0;
+		options = options + eat;
+		total();
+	});
+	$('#eatOut').click(function() {
+		eat = 0.7;
+		options = options + eat;
+		total();
+	});
+	$('#noParty').click(function() {
+		party = 0;
+		options = options + party;
+		total();
+	});
+	$('#moderate').click(function() {
+		party = 0.1;
+		options = options + party;
+		total();
+	});
+	$('#hellYes').click(function() {
+		party = 0.4;
+		options = options + party;
+		total();
+	});
+
+	//var countryList = $('.countryName');
+	//var newBudget = [];
+	//for (i = 0; i < countryList.length; i++){
+		//newBudget).push(budget[$.inArray(countryList.text(), countries)]);
+	//} 
+
 	$("#insideLetsGo").click(function(){
-    $('#sleepX').removeClass("hidden").siblings().addClass("hidden");
+    $('#whichCountry').removeClass("hidden").siblings().addClass("hidden");
+		$( "#country" ).autocomplete({
+      lookup: countries
+    });
+		total();
+	});
+	$("#toCountry").click(function(){
+    $('#whichCountry').removeClass("hidden").siblings().addClass("hidden");
+		$( "#country" ).autocomplete({
+      lookup: countries
+    });
 		total();
 	});
 	$("#toHome").click(function(){
     $('#head').removeClass("hidden").siblings().addClass("hidden");
 		total();
 	});
-	$("#toEat").click(function(){
+	$(".firstStep").click(function(){
     $('#eatX').removeClass("hidden").siblings().addClass("hidden");
+		total();
+	});
+	$("#toSleep2").click(function(){
+    $('#sleepX').removeClass("hidden").siblings().addClass("hidden");
 		total();
 	});
 	$("#toSleep").click(function(){
     $('#sleepX').removeClass("hidden").siblings().addClass("hidden");
 		total();
+		sleep = 0;
 	});
-	$("#toParty").click(function(){
+	$(".secondStep").click(function(){
     $('#partyX').removeClass("hidden").siblings().addClass("hidden");
 		total();
 	});
 	$("#toEat2").click(function(){
     $('#eatX').removeClass("hidden").siblings().addClass("hidden");
 		total();
+		eat = 0;
 	});
-	$("#toActivity").click(function(){
+	$(".thirdStep").click(function(){
     $('#activityX').removeClass("hidden").siblings().addClass("hidden");
 		total();
 	});
 	$("#toParty2").click(function(){
     $('#partyX').removeClass("hidden").siblings().addClass("hidden");
 		total();
+		party = 0;
 	});
 	$("#toFlights").click(function(){
     $('#flightX').removeClass("hidden").siblings().addClass("hidden");
@@ -443,9 +512,6 @@ $(document).ready(function() {
 	$("#toCalculator").click(function(){
     $('#calculator').removeClass("hidden").siblings().addClass("hidden");
 		total();
-		$( "#country" ).autocomplete({
-    	lookup: countries
-  	});
 	});
 	$("#toFlights2").click(function(){
     $('#flightX').removeClass("hidden").siblings().addClass("hidden");
@@ -462,9 +528,6 @@ $(document).ready(function() {
 	$("#toCalculator2").click(function(){
     $('#calculator').removeClass("hidden").siblings().addClass("hidden");
 		total();
-		$( "#country" ).autocomplete({
-    	lookup: countries
-  	});
 	});
 	$("#toCalculator3").click(function(){
     $('#calculator').removeClass("hidden").siblings().addClass("hidden");
@@ -476,9 +539,8 @@ $(document).ready(function() {
 	$("#backToTop").click(function(){
     $('#head').removeClass("hidden").siblings().addClass("hidden");
 		total();
+		options = 1;
 	});
-
-
 
 	$(document).on("keyup", '.getInput', function() {
 		total();
@@ -505,6 +567,7 @@ $(document).ready(function() {
 		  var cost = dailyCost[i];
 		  var day = days[i];
 		  
+		  $($('.dailyCost')[i]).text("$" + ((Number($(cost).text().replace('$', '').replace('\/day', ''))) * options) + "/day");
 		  $($('.totalCost')[i]).text("$" + (Number($(day).val()) * Number($(cost).text().replace('$', '').replace('\/day', ''))));
 		  
 		  sum += (Number($(day).val()) * Number($(cost).text().replace('$', '').replace('\/day', '')));
@@ -533,32 +596,32 @@ $(document).ready(function() {
 
   }
 
-	$( "#country" ).autocomplete({
-      lookup: countries
-    });
-
 	$('.glyphicon-remove').on("click", function() {
 		$(this).parent().parent().fadeOut(600,function() { $(this).remove() });
 		total();
 	});
+	
+
 
 	$('#add').on("click", function() {
 		
-		$('#addBelow').children().append('<tr> \
-			<td class="daysQty table1"> \
-				<input class="days getInput daysInput" placeholder="Days"> \
-			</td> \
-			<td class="countryName table1"></td> \
-			<td class="dailyCost table1"></td> \
-			<td class="totalCost table1"></td> \
-			<td class="remove table1"> \
-				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> \
-			</td></tr>');
+		$('#addBelow').children().append('<tr>' +
+			'<td class="daysQty table1">' +
+				'<input class="days getInput daysInput" placeholder="Days">' +
+			'</td>' +
+			'<td class="countryName table1"></td>' +
+			'<td class="dailyCost table1"></td>' +
+			'<td class="totalCost table1"></td>' +
+			'<td class="remove table1">' +
+				'<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>' +
+			'</td></tr>');
 
 		$('.daysInput:last').focus();
 
 		var countryName = $('#country').val();
 		$('.countryName:last').text(countryName);
+
+		$('#addCountry').append('<a class="remov">' + countryName + '</a>');
 
 		var dailyCost = budget[$.inArray(countryName, countries)];
 		$('.dailyCost:last').text("$" + dailyCost + "/day");
@@ -577,8 +640,11 @@ $(document).ready(function() {
 		total();
 
 	});
+	
+	$(document).on('click', '.remov', function() {
+		$(this).fadeOut(600,function() { $(this).remove() });
+		total();
+	});
 
-	$(".btn-group > .btn").click(function(){
-    $(this).addClass("active").siblings().removeClass("active");
-  });
 });
+

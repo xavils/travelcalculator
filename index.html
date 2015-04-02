@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link href="custom.css" rel="stylesheet">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   </head>
   <body>
     <section id="head" class="container col-xs-12">
@@ -22,6 +22,7 @@
       <p>Easily calculate the cost of a multi-country trip using this handy tool</p>
       <a id="insideLetsGo" class="btn btn-default center-block greenButton2"  href="#calculator" role="button">LET'S GO!</a>
     </section>
+
     <section id="whichCountry" class="container col-xs-12 hidden">
       <div class="row topBackground">
         <a id="toHome" class="btn btn-default greenButton"  href="#head" role="button"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Go back</a>
@@ -54,6 +55,7 @@
         </div>
       </div>
     </section>
+
     <section id="sleepX" class="container col-xs-12 hidden">
       <div class="row topBackground">
         <a id="toCountry" class="btn btn-default greenButton"  href="#head" role="button"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Go back</a>
@@ -68,25 +70,26 @@
       </div>
       <div class="row col-xs-12">
         <div class="col-sm-6 col-md-4 bigButtons">
-          <a id="hostel" class="btn btn-default greenButton dolar firstStep" href="#" role="button"><i class="fa fa-dollar fa-4x"></i></a>
+          <a id="hostel" data-sleep="0" class="btn btn-default greenButton dolar firstStep" href="#"  role="button"><i class="fa fa-dollar fa-4x"></i></a>
           <div class="caption">
             <h3>Hostel</h3>
           </div>
         </div>
         <div class="col-sm-6 col-md-4 bigButtons">
-          <a id="cheapHotel" class="btn btn-default greenButton dolar firstStep" href="#" role="button"><i class="fa fa-dollar fa-4x"></i><i class="fa fa-dollar fa-4x"></i></a>
+          <a id="cheapHotel" data-sleep="0.75" class="btn btn-default greenButton dolar firstStep" href="#" role="button"><i class="fa fa-dollar fa-4x"></i><i class="fa fa-dollar fa-4x"></i></a>
           <div class="caption">
             <h3>Affordable Hotel</h3>
           </div>
         </div>
         <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-0 bigButtons">
-          <a id="starHotel" class="btn btn-default greenButton dolar firstStep" href="#" role="button"><i class="fa fa-dollar fa-4x"></i><i class="fa fa-dollar fa-4x"></i><i class="fa fa-dollar fa-4x"></i></a>
+          <a id="starHotel" data-sleep="1.5" class="btn btn-default greenButton dolar firstStep" href="#" role="button"><i class="fa fa-dollar fa-4x"></i><i class="fa fa-dollar fa-4x"></i><i class="fa fa-dollar fa-4x"></i></a>
           <div class="caption">
             <h3><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>Hotel</h3>
           </div>
         </div>
       </div>
     </section>
+
     <section id="eatX" class="container col-xs-12 hidden">
       <div class="row topBackground">
         <a id="toSleep" class="btn btn-default greenButton"  href="#sleepX" role="button"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Go back</a>
@@ -101,22 +104,24 @@
       </div>
       <div class="row col-xs-12">
         <div class="col-sm-6 col-md-4 col-md-offset-2 bigButtons">
-          <a id="streetFood" class="btn btn-default greenButton dolar secondStep" href="#" role="button"><i class="fa fa-spoon fa-4x"></i></a>
+          <a id="streetFood" data-eat="0" class="btn btn-default greenButton dolar secondStep" href="#" role="button"><i class="fa fa-spoon fa-4x"></i></a>
           <div class="caption">
             <h3>Street food</h3>
           </div>
         </div>
         <div class="col-sm-6 col-md-4 bigButtons">
-          <a id="eatOut" class="btn btn-default greenButton dolar secondStep" href="#" role="button"><i class="fa fa-spoon fa-4x"></i><i class="fa fa-spoon fa-4x"></i><i class="fa fa-spoon fa-4x"></i></a>
+          <a id="eatOut" data-eat="0.7" class="btn btn-default greenButton dolar secondStep" href="#" role="button"><i class="fa fa-spoon fa-4x"></i><i class="fa fa-spoon fa-4x"></i><i class="fa fa-spoon fa-4x"></i></a>
           <div class="caption">
             <h3>Eat out</h3>
           </div>
         </div>
       </div>
     </section>
+
+
     <section id="partyX" class="container col-xs-12 hidden">
       <div class="row topBackground">
-        <a id="toEat2" class="btn btn-default greenButton"  href="#eatX" role="button"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Go back</a>
+        <a id="toEat2" data-eat=class="btn btn-default greenButton"  href="#eatX" role="button"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Go back</a>
         <div class="progress">
           <div class="progress-bar" role="progressbar" aria-valuenow="17" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">4/8</div>
         </div>
@@ -147,6 +152,7 @@
         </div>
       </div>
     </section>
+
     <section id="activityX" class="container col-xs-12 hidden">
       <div class="row topBackground">
         <a id="toParty2" class="btn btn-default greenButton"  href="#partyX" role="button"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Go back</a>
@@ -171,6 +177,7 @@
         </div>
       </div>
     </section>
+
     <section id="flightX" class="container col-xs-12 hidden">
       <div class="row topBackground">
         <a id="toActivity2" class="btn btn-default greenButton"  href="#activityX" role="button"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Go back</a>
@@ -195,6 +202,7 @@
         </div>
       </div>
     </section>
+
     <section id="calculator" class="container col-xs-12 hidden">
       <div class="row topBackground">
         <a id="toFlights2" class="btn btn-default greenButton"  href="#head" role="button"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Go back</a>
@@ -222,6 +230,7 @@
         </div>
       </div>
     </section>
+
     <section id="results" class="hidden">
       <div class="row topBackground">
         <a id="toCalculator2" class="btn btn-default greenButton" href="#calculator" role="button"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Go back</a>
@@ -280,6 +289,7 @@
         </div>
       </div>
     </section>
+
     <!--<section id="travelTips" class="hidden">
       <h2>Travel tips</h2>
       <ul class="nav nav-pills">
@@ -332,9 +342,10 @@
         <a id="toResults" class="btn btn-default" href="#results" role="button">Go back</a>        
        <a id="backToTop" class="btn btn-default" href="#" role="button">Back to top</a>
       </div>
-    </section>-->
+    </section>
+    -->
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="jquery.autocomplete.js"></script>
     <script src="application.js"></script>

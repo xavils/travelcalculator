@@ -451,11 +451,22 @@ $(document).ready(function() {
     $('#flightX').removeClass("hidden").siblings().addClass("hidden");
 		total();
 	});
+	$("#toFlights3").click(function(){
+    $('#flightX').removeClass("hidden").siblings().addClass("hidden");
+		total();
+	});
 	$("#getTotal").click(function(){
     $('#results').removeClass("hidden").siblings().addClass("hidden");
 		total();
 	});
 	$("#toCalculator2").click(function(){
+    $('#calculator').removeClass("hidden").siblings().addClass("hidden");
+		total();
+		$( "#country" ).autocomplete({
+    	lookup: countries
+  	});
+	});
+	$("#toCalculator3").click(function(){
     $('#calculator').removeClass("hidden").siblings().addClass("hidden");
 		total();
 		$( "#country" ).autocomplete({
@@ -533,27 +544,18 @@ $(document).ready(function() {
 
 	$('#add').on("click", function() {
 		
-		//$('#addBelow').append('<div class="row"> \
-			//<div class="daysQty"> \
-				//<input id="daysInput" class="days getInput" placeholder="Days"> \
-			//</div> \
-//			<div class="countryName"></div> \
-	//		<div class="dailyCost"></div> \
-		//	<div class="totalCost"></div> \
-			//<div class="remove"> \
-				//<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> \
-		//	</div></div>');
-
 		$('#addBelow').children().append('<tr> \
-			<td class="daysQty"> \
-				<input id="daysInput" class="days getInput" placeholder="Days"> \
+			<td class="daysQty table1"> \
+				<input class="days getInput daysInput" placeholder="Days"> \
 			</td> \
-			<td class="countryName"></td> \
-			<td class="dailyCost"></td> \
-			<td class="totalCost"></td> \
-			<td class="remove"> \
+			<td class="countryName table1"></td> \
+			<td class="dailyCost table1"></td> \
+			<td class="totalCost table1"></td> \
+			<td class="remove table1"> \
 				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> \
 			</td></tr>');
+
+		$('.daysInput:last').focus();
 
 		var countryName = $('#country').val();
 		$('.countryName:last').text(countryName);

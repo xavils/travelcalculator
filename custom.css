@@ -28,9 +28,6 @@ h2 {
 	color: #455;
 	padding-top: 20px;
 }
-#daysInput {
-	max-width: 45px;
-}
 #greenButton:hover {
 	opacity: 0.7;
 }
@@ -60,7 +57,7 @@ h2 {
 	font-weight: bold;
 	color: #FFF;
 	border-width: 0;
-	background-color: #00cc99;
+	background-color: #00aa77;
 }
 }	
 @media(min-width:768px){
@@ -76,7 +73,7 @@ h2 {
 	font-weight: bold;
 	color: #FFF;
 	border-width: 0;
-	background-color: #00cc99;
+	background-color: #00aa77;
 }
 }
 .table {
@@ -89,8 +86,6 @@ h2 {
 }
 .table-responsive {
 	border: 0;
-	margin-bottom: 0;
-	padding-bottom: 0;
 }
 .table>.col-lg-6 {
 	width: auto;
@@ -109,7 +104,7 @@ h2 {
 	text-align: center;
 }
 h3 {
-	font-weighrt: bold;
+	font-weight: bold;
 	margin-top: 20px;
 	text-align: center;
 }
@@ -129,13 +124,26 @@ h3 {
 .glyphicon-remove {
 	cursor: pointer;
 }
-td, th {
+.table1 {
 	text-align: center;
 	vertical-align: middle;
 	border-bottom: 1px dashed grey;
-	margin-bottom: 0px;
+	font-size: 15px;
 }
-#daysInput {
+.daysInput {
 	background-color: transparent;
 	border-color: transparent;
+	max-width: 45px;
+	text-align: center;
+}
+.input-group-addon, .backie {
+	font-size: 20px;
+	background-color: #00aa77;
+	font-weight: bold;
+	color: white;
+	border: 0;
+}
+.inputHeight {
+	height: 42px;
+	border: 0;
 }

@@ -69,15 +69,15 @@ h2 {
 	border-width: 0;
 	background-color: #00aa77;
 	}
-	#addCountry {
-	padding-top: 20px;
+	.remov {
+	padding-top: 5px;
 	font-size: 30px;
-}
+	}
 }	
 @media(min-width:768px){
 	#totalPrice {
-		font-size: 200px;
-		margin-top: 50px;
+		font-size: 180px;
+		margin-top: 40px;
 	}
 	.greenButton  {
 	width: 200px;
@@ -99,7 +99,7 @@ h2 {
 	border-width: 0;
 	background-color: #00aa77;
 	}
-	#addCountry {
+	.remov {
 	padding-top: 20px;
 	font-size: 50px;
 }
@@ -120,12 +120,12 @@ h2 {
 }
 #toEat, #toParty, #toActivity, #toFlights, #toCalculator, .progress {
     margin-top: 25px;
-    margin-right: 50px;
+    margin-right: 20px;
     float: right;
 }
 #toHome, #toSleep, #toEat2, #toParty2, #toActivity2, #toFlights2, #toCalculator2, #toCountry {
     margin-top: 25px;
-    margin-left: 50px; 
+    margin-left: 0; 
     float: left;
 }
 .image {
@@ -139,7 +139,7 @@ h3 {
 .progress {
 	float:right;
 	margin-top: 33px;
-	margin-right: 50px;
+	margin-right: 20px;
 	width: 250px;
 }
 .progress-bar {
@@ -202,4 +202,8 @@ h3 {
 	text-align: center;
 	padding-top: 30px;
 	padding-bottom: 30px;
+}
+#addCountry {
+	padding-top: 15px;
+	font-size: 20px;
 }

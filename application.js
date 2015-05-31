@@ -137,7 +137,6 @@ $(document).ready(function() {
     $( "#country" ).autocomplete({lookup: countries });
   });
 
-
   $("#backToTop").click(function(){
     $('#head').removeClass("hidden").siblings().addClass("hidden");
     multipliers.options = 1;
@@ -170,6 +169,7 @@ $(document).ready(function() {
 		  var day = days[i];
 		  var dayNumber = Number($(day).val());
 		  
+		  $($('.dailyCost')[i]).text("$" + costNumber * multipliers.options + "\/day");
 		  $($('.totalCost')[i]).text("$" + dayNumber * costNumber);
 		  
 		  sum += (Number($(day).val()) * Number($(cost).text().replace('$', '').replace('\/day', '')));
@@ -221,7 +221,7 @@ $(document).ready(function() {
 
     var dailyCost = budget[$.inArray(countryName, countries)];
 		$('.dailyCost:last').text("$" + dailyCost + "/day");
-    
+
     $('.glyphicon-remove').on("click", function() {
       $(this).parent().parent().fadeOut(600,function() { $(this).remove() });
       total();

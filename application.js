@@ -13,8 +13,8 @@ $(document).ready(function() {
 		options: 1
 	};
 
-	var countryName;
-  var dailyCost;
+	var countryName = [];
+  var dailyCost = [];
 
   //--------------------------------------------------------
   // SLEEP
@@ -51,13 +51,6 @@ $(document).ready(function() {
   $('#noParty, #moderate, #hellYes').click(function() {
     addParty(this);
   });
-
-
-  //var countryList = $('.countryName');
-  //var newBudget = [];
-  //for (i = 0; i < countryList.length; i++){
-    //newBudget).push(budget[$.inArray(countryList.text(), countries)]);
-  //} 
 
   $("#insideLetsGo").click(function(){
     $('#whichCountry').removeClass("hidden").siblings().addClass("hidden");
@@ -130,28 +123,43 @@ $(document).ready(function() {
 
   $("#toCalculator2").click(function(){
     $('#calculator').removeClass("hidden").siblings().addClass("hidden");
+    $('.daysInput:last').focus();
   });
 
   $("#toCalculator3").click(function(){
     $('#calculator').removeClass("hidden").siblings().addClass("hidden");
-    $( "#country" ).autocomplete({lookup: countries });
+    // $( "#country" ).autocomplete({lookup: countries });
+    var dailyCost2 = [];
+
+    $('.daysQty').parent().remove();
+
+    for (var i = 0; i < dailyCost.length; i++){
+      addCountry2();
+      $('.countryName:last').text(countryName[i]);
+      dailyCost2.push(Math.round(dailyCost[i] * multipliers.options));
+      $($('.dailyCost')[i]).text("$" + dailyCost2[i] + "/day");
+    }
+    total();
+    // $('.daysInput:last').focus();
   });
 
   $("#backToTop").click(function(){
     $('#head').removeClass("hidden").siblings().addClass("hidden");
     multipliers.options = 1;
+    multipliers.eat = 0;
+    multipliers.sleep = 0;
+    multipliers.party = 0;
   });
 
   $(document).on("keyup", '.getInput', function() {
-		total();
-	});
+    total();
+  });
 
   function total() {
-
-		var days = $('.days');
-		var dailyCosts = $('.dailyCost');
-		var activities = Number($('#activities').val());
-		var flights = (Number($('#flights').val()) * 0.12);
+    var days = $('.days');
+    var dailyCosts = $('.dailyCost');
+    var activities = Number($('#activities').val());
+    var flights = (Number($('#flights').val()) * 0.12);
     var sum = 0;
     var dayT = 0;
     var sumLess = 0;
@@ -164,17 +172,16 @@ $(document).ready(function() {
     var totalTravel = 0;
 
     for (var i = 0; i < dailyCosts.length; i++) {
-		  var cost = dailyCosts[i];
-		  var costNumber = Number($(cost).text().replace('$', '').replace('\/day', ''));
-		  var day = days[i];
-		  var dayNumber = Number($(day).val());
-		  
-		  $($('.dailyCost')[i]).text("$" + costNumber * multipliers.options + "\/day");
-		  $($('.totalCost')[i]).text("$" + dayNumber * costNumber);
-		  
-		  sum += (Number($(day).val()) * Number($(cost).text().replace('$', '').replace('\/day', '')));
-    	dayT += Number($(day).val());
-
+      var cost = dailyCosts[i];
+      var costNumber = Number($(cost).text().replace('$', '').replace('\/day', ''));
+      var day = days[i];
+      var dayNumber = Number($(day).val());
+      
+      $($('.dailyCost')[i]).text("$" + costNumber + "\/day");
+      $($('.totalCost')[i]).text("$" + dayNumber * costNumber);
+      
+      sum += (Number($(day).val()) * Number($(cost).text().replace('$', '').replace('\/day', '')));
+      dayT += Number($(day).val());
     }
 
     sumLess = sum;
@@ -196,11 +203,36 @@ $(document).ready(function() {
     $('#totalTravel').text("$" + totalTravel);
     $('#totalPrice').text("$" + sum);
     $('#sumCaption').text("You will visit " + days.length + " countries for " + dayT + " days and spend an average of $" + average + " daily");
-
   }
 
   $('#add').on("click", function() {
-    
+    if (countries.indexOf($('#country').val()) > -1) {
+      countryName.push($('#country').val());
+      dailyCost.push(budget[$.inArray($('#country').val(), countries)]);
+
+      addCountry();
+    } else {
+      $('#country').val('');
+    }
+  });
+  
+  $(document).on('click', '.remov', function() {
+    $(this).fadeOut(600,function() { $(this).remove() });
+    var index = countryName.indexOf($(this).text().replace(' + ', ''));
+    countryName.splice(index, 1);
+    dailyCost.splice(index, 1);
+    total();
+  });
+
+
+
+  function addCountry() {
+    $('#addCountry').append('<a class="remov">' + countryName[countryName.length -1] + ' + ' + '</a>');
+
+    $('#country').val('');
+  }
+
+  function addCountry2() {
     $('#addBelow').children().append('<tr>' +
       '<td class="daysQty table1">' +
       '<input class="days getInput daysInput" placeholder="Days">' +
@@ -212,28 +244,18 @@ $(document).ready(function() {
       '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>' +
       '</td></tr>');
 
-    $('.daysInput:last').focus();
-
-    countryName = $('#country').val();
-    $('.countryName:last').text(countryName);
-
-    $('#addCountry').append('<a class="remov">' + countryName + ' + ' + '</a>');
-
-    var dailyCost = budget[$.inArray(countryName, countries)];
-		$('.dailyCost:last').text("$" + dailyCost + "/day");
-
     $('.glyphicon-remove').on("click", function() {
-      $(this).parent().parent().fadeOut(600,function() { $(this).remove() });
-      total();
+      var index = $(this).parent().index(".remove");
+      $(this).parent().parent().fadeOut(600,function() {
+        $(this).remove() 
+        console.log(index);
+        $($('.remov')[index]).remove();
+        countryName.splice(index, 1);
+        dailyCost.splice(index, 1);
+        console.log(countryName);
+        total();
+      });
     });
-
-    $('#country').val('');
-
-  });
-  
-  $(document).on('click', '.remov', function() {
-    $(this).fadeOut(600,function() { $(this).remove() });
-  }); 
-
+  }
 });
 

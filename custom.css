@@ -55,17 +55,41 @@ h2 {
 	font-size: 16px;
 	text-align: center;
 	font-weight: bold;
+	color: #00aa77;
+	border-width: 0;
+	background-color: transparent;
+	}
+	.greenButton2  {
+	width: 160px;
+	border-radius: 15px;
+	font-size: 16px;
+	text-align: center;
+	font-weight: bold;
 	color: #FFF;
 	border-width: 0;
 	background-color: #00aa77;
-}
+	}
+	.remov {
+	padding-top: 5px;
+	font-size: 30px;
+	}
 }	
 @media(min-width:768px){
 	#totalPrice {
-		font-size: 200px;
-		margin-top: 50px;
+		font-size: 180px;
+		margin-top: 40px;
 	}
 	.greenButton  {
+	width: 200px;
+	border-radius: 15px;
+	font-size: 20px;
+	text-align: center;
+	font-weight: bold;
+	color: #00aa77;
+	border-width: 0;
+	background-color: transparent;
+	}
+	.greenButton2  {
 	width: 200px;
 	border-radius: 15px;
 	font-size: 20px;
@@ -74,6 +98,10 @@ h2 {
 	color: #FFF;
 	border-width: 0;
 	background-color: #00aa77;
+	}
+	.remov {
+	padding-top: 20px;
+	font-size: 50px;
 }
 }
 .table {
@@ -90,14 +118,14 @@ h2 {
 .table>.col-lg-6 {
 	width: auto;
 }
-#toEat, #toParty, #toActivity, #toFlights, #toCalculator, #getTotal, #backToTop {
+#toEat, #toParty, #toActivity, #toFlights, #toCalculator, .progress {
     margin-top: 25px;
-    margin-right: 50px;
+    margin-right: 20px;
     float: right;
 }
-#toHome, #toSleep, #toEat2, #toParty2, #toActivity2, #toFlights2, #toCalculator2 {
+#toHome, #toSleep, #toEat2, #toParty2, #toActivity2, #toFlights2, #toCalculator2, #toCountry {
     margin-top: 25px;
-    margin-left: 50px; 
+    margin-left: 0; 
     float: left;
 }
 .image {
@@ -107,6 +135,17 @@ h3 {
 	font-weight: bold;
 	margin-top: 20px;
 	text-align: center;
+}
+.progress {
+	float:right;
+	margin-top: 33px;
+	margin-right: 20px;
+	width: 250px;
+}
+.progress-bar {
+	background-color: #00aa77;
+	text-align: right;
+	padding-right: 10px;
 }
 .dolar:hover {
 	transform: scale(1.35);
@@ -146,4 +185,25 @@ h3 {
 .inputHeight {
 	height: 42px;
 	border: 0;
+}
+#addCountry {
+	padding-top: 20px;
+	font-size: 75px;
+}
+#addCountry>a {
+	color: #455;
+	text-decoration: none;
+	cursor: pointer;
+}
+#greenLink {
+	color: #00aa77;
+}
+.centerButton {
+	text-align: center;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+#addCountry {
+	padding-top: 15px;
+	font-size: 20px;
 }
